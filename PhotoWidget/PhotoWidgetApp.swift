@@ -11,7 +11,9 @@ import SwiftUI
 struct PhotoWidgetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                WidgetBuilderView()
+            }
         }
     }
 }
