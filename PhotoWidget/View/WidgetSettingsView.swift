@@ -6,15 +6,55 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct WidgetSettingsView: View {
+    let family: WidgetFamily
+    var layout: Binding<WidgetLayout>
+    let size: CGSize
+    
     var body: some View {
-        Text("Settings")
-    }
-}
+        VStack(spacing: padding) {
+                SettingsNavigationView { (push, pop) in
+                    HStack(spacing: padding) {
+                        BuilderButton(title: "Layout", action: {
+                            let view = LayoutSettingsView(family: family, layout: layout, size: size)
+                            push("Layout", AnyView(view))
+                        }) {
+                            Image(systemName: "uiwindow.split.2x1")
+                                .resizable()
+                                .rotationEffect(.degrees(90))
+                        }
+                            .frame(width: buttonWidth(for: size))
 
-struct WidgetSettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        WidgetSettingsView()
+
+
+                        BuilderButton(title: "Photos", action: {
+                            push("Photos", AnyView(PhotoSettingsView()))
+                        }) {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
+                            .frame(width: buttonWidth(for: size))
+                    }
+                }
+                .foregroundColor(.white)
+    
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, idealHeight: heigth(for: size), alignment: .center)
+    }
+    
+
+    let padding:CGFloat = 20
+    
+    
+    private func buttonWidth(for size: CGSize) -> CGFloat {
+        let availabelWidth = size.width -  5 * padding
+        return availabelWidth / 4
+    }
+    
+    private func heigth(for size: CGSize) -> CGFloat {
+        return buttonWidth(for: size) + 3 * padding
     }
 }

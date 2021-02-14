@@ -27,7 +27,6 @@ struct WidgetPreviewView<Content: View>: View {
                     .cornerRadius(20)
                     .frame(width: WidgetUtil.size(for: family, in: geometry.size).width)
                     .aspectRatio(aspectRatio, contentMode: .fit)
-                    .shadow(color: Color.gray, radius: 20, x: -5, y: 10)
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
         }

@@ -14,7 +14,14 @@ struct WidgetFamilySelector: View {
         Button(action: {
             family = WidgetFamily(rawValue: (family.rawValue + 1)%3 )!
         }, label: {
-            Text("change family")
+            HStack {
+                Circle()
+                Circle()
+                Circle()
+            }
+            .frame(width: 30)
+            .foregroundColor(.primary)
+            .padding(10)
         })
     }
 }

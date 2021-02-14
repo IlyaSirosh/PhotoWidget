@@ -16,7 +16,7 @@ struct WidgetUtil {
         case .systemSmall:
             return 1.0
         case .systemMedium:
-            return 1.5
+            return 2.0
         case .systemLarge:
             return 1.0
         @unknown default:
@@ -39,3 +39,4 @@ struct WidgetUtil {
         }
     }
 }
+

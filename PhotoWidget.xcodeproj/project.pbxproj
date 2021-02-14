@@ -30,6 +30,11 @@
 		49D5BE6225D8356A003EBA9F /* WidgetUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6125D8356A003EBA9F /* WidgetUtil.swift */; };
 		49D5BE6625D83FB6003EBA9F /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */; };
 		49D5BE6D25D840B7003EBA9F /* WidgetFamilySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6C25D840B7003EBA9F /* WidgetFamilySelector.swift */; };
+		49D5BE7525D8522B003EBA9F /* BuilderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE7425D8522B003EBA9F /* BuilderButton.swift */; };
+		49E0998225D9694000402206 /* PhotoSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0998125D9694000402206 /* PhotoSettingsView.swift */; };
+		49E0998625D969A200402206 /* LayoutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0998525D969A200402206 /* LayoutSettingsView.swift */; };
+		49E0998B25D96BAC00402206 /* SettingsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0998A25D96BAC00402206 /* SettingsNavigationView.swift */; };
+		49E0999125D9700E00402206 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0999025D9700E00402206 /* SettingsNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,11 @@
 		49D5BE6125D8356A003EBA9F /* WidgetUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUtil.swift; sourceTree = "<group>"; };
 		49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		49D5BE6C25D840B7003EBA9F /* WidgetFamilySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetFamilySelector.swift; sourceTree = "<group>"; };
+		49D5BE7425D8522B003EBA9F /* BuilderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderButton.swift; sourceTree = "<group>"; };
+		49E0998125D9694000402206 /* PhotoSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSettingsView.swift; sourceTree = "<group>"; };
+		49E0998525D969A200402206 /* LayoutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSettingsView.swift; sourceTree = "<group>"; };
+		49E0998A25D96BAC00402206 /* SettingsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationView.swift; sourceTree = "<group>"; };
+		49E0999025D9700E00402206 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,7 @@
 		49A01F4825D6B64E00B1E75A /* PhotoWidget */ = {
 			isa = PBXGroup;
 			children = (
+				49E0998925D96B8E00402206 /* SettingsNavigation */,
 				49D5BE3B25D81B09003EBA9F /* PhotoWidgetSettings.swift */,
 				49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */,
 				49D5BE6925D83FCD003EBA9F /* View */,
@@ -171,8 +182,20 @@
 				49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */,
 				49D5BE6C25D840B7003EBA9F /* WidgetFamilySelector.swift */,
 				49D5BE6125D8356A003EBA9F /* WidgetUtil.swift */,
+				49D5BE7425D8522B003EBA9F /* BuilderButton.swift */,
+				49E0998125D9694000402206 /* PhotoSettingsView.swift */,
+				49E0998525D969A200402206 /* LayoutSettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		49E0998925D96B8E00402206 /* SettingsNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				49E0998A25D96BAC00402206 /* SettingsNavigationView.swift */,
+				49E0999025D9700E00402206 /* SettingsNavigationController.swift */,
+			);
+			path = SettingsNavigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,13 +308,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D5BE7525D8522B003EBA9F /* BuilderButton.swift in Sources */,
 				49A01F8525D6C9A900B1E75A /* PhotoWidgetData.swift in Sources */,
 				49A01F7925D6C92B00B1E75A /* PhotoWidgetView.swift in Sources */,
+				49E0998B25D96BAC00402206 /* SettingsNavigationView.swift in Sources */,
+				49E0998225D9694000402206 /* PhotoSettingsView.swift in Sources */,
 				49D5BE6D25D840B7003EBA9F /* WidgetFamilySelector.swift in Sources */,
 				49D5BE4F25D821F1003EBA9F /* PhotoWidgetSettings.swift in Sources */,
 				49D5BE5425D82206003EBA9F /* WidgetPreviewView.swift in Sources */,
+				49E0998625D969A200402206 /* LayoutSettingsView.swift in Sources */,
 				49D5BE2725D7F45A003EBA9F /* WidgetLayout.swift in Sources */,
 				49D5BE6625D83FB6003EBA9F /* WidgetSettingsView.swift in Sources */,
+				49E0999125D9700E00402206 /* SettingsNavigationController.swift in Sources */,
 				49D5BE6225D8356A003EBA9F /* WidgetUtil.swift in Sources */,
 				49A01F4A25D6B64E00B1E75A /* PhotoWidgetApp.swift in Sources */,
 				49D5BE5B25D82223003EBA9F /* WidgetBuilderView.swift in Sources */,
