@@ -9,7 +9,8 @@ import Foundation
 import WidgetKit
 
 struct WidgetBuilder {
-    private var widget: [WidgetFamily: PhotoWidgetData] = [:]
+    private var store = PhotoWidgetConfiguration()
+    private var widget: [WidgetFamily: PhotoWidgetData]
     private(set) var currentFamily: WidgetFamily {
         willSet {
             saveChanges()
@@ -24,10 +25,16 @@ struct WidgetBuilder {
     
     init() {
         // TODO Load persisted settings
-        self.currentFamily = .systemSmall
-        let layouts = PhotoWidgetSettings.layouts(for: currentFamily)
-        self.widgetData = PhotoWidgetData(layout: layouts.randomElement()!, photos: [0: URL(string: "https://images.unsplash.com/photo-1613141276543-74107d388095?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80")!, 2: URL(string: "https://images.unsplash.com/photo-1612541831162-96d8fe7558f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80")!])
-        self.layoutOptions = layouts
+        self.currentFamily = store.loadCurrentWidgetFamily() ?? .systemSmall
+        self.layoutOptions = PhotoWidgetSettings.layouts(for: currentFamily)
+        self.widget = store.loadWidget()
+
+        if let data = widget[currentFamily] {
+            self.widgetData = data
+        } else {
+            self.widgetData = PhotoWidgetData(layout: self.layoutOptions[0])
+        }
+        
     }
     
     mutating func updateWidgetLayout(with layout: WidgetLayout) {
@@ -54,6 +61,8 @@ struct WidgetBuilder {
     private mutating func saveChanges() {
         widget[currentFamily] = widgetData
         // TODO persist widget
+        store.save(family: currentFamily)
+        store.save(configuration: widget)
     }
     
     mutating func changeWidgetFamily() {

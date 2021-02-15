@@ -11,11 +11,7 @@ import URLImage
 struct PhotoButton: View {
     private let onAdd: () -> Void
     private let onRemove: () -> Void
-    var url: URL? {
-        didSet{
-            state = url != nil ? .hasPhoto : .empty
-        }
-    }
+    let url: URL?
     @State var state: PhotoButtonState = .empty
     
     init(url: URL?, onAdd: @escaping () -> Void, onRemove: @escaping () -> Void) {
@@ -29,7 +25,10 @@ struct PhotoButton: View {
     var body: some View {
         GeometryReader { geo in
             if url == nil {
-                Button(action: onAdd) {
+                Button(action: {
+                    onAdd()
+                    state = .empty
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke()

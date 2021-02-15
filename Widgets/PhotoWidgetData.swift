@@ -11,3 +11,5 @@ struct PhotoWidgetData {
     var layout: WidgetLayout
     var photos: [Int: URL] = [:]
 }
+
+//extension PhotoWidgetData: Codable  {}

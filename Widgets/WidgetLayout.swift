@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WidgetLayout: Equatable {
+enum WidgetLayout: Equatable{
     case item(Int)
     indirect case columns(WidgetLayout, WidgetLayout)
     indirect case rows(WidgetLayout, WidgetLayout)
@@ -28,3 +28,15 @@ enum WidgetLayout: Equatable {
     }
 }
 
+//extension WidgetLayout: Codable {
+//    
+//    init(from decoder: Decoder) throws {
+//        
+//    }
+//    
+//    func encode(to encoder: Encoder) throws {
+//        
+//    }
+//    
+//    
+//}

@@ -25,6 +25,7 @@ struct PhotoSettingsView: View {
                 PhotoButton(
                     url: widgetBuilder.widgetData.photos[index],
                     onAdd: {
+                        photoURL = nil
                         photoIndexToSet = index
                     },
                     onRemove: {
