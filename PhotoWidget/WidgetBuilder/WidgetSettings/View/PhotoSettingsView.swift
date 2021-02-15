@@ -10,6 +10,13 @@ import SwiftUI
 struct PhotoSettingsView: View {
     @EnvironmentObject var widgetBuilder: WidgetBuilderViewModel
     var size: CGSize
+    @State var isPickerPresented = false
+    @State var photoIndexToSet: Int? {
+        didSet {
+            isPickerPresented = photoIndexToSet != nil
+        }
+    }
+    @State var photoURL: URL?
     
     var body: some View {
         HStack(spacing: padding) {
@@ -18,7 +25,7 @@ struct PhotoSettingsView: View {
                 PhotoButton(
                     url: widgetBuilder.widgetData.photos[index],
                     onAdd: {
-                        
+                        photoIndexToSet = index
                     },
                     onRemove: {
                         widgetBuilder.removePhoto(position: index)
@@ -26,8 +33,12 @@ struct PhotoSettingsView: View {
                         .frame(width: width(for: size), height: width(for: size))
                 
             }
-        }.onAppear {
-            print(widgetBuilder.widgetData)
+        }.sheet(isPresented: $isPickerPresented, content: {
+            UpsplashImagePicker(url: $photoURL)
+        }).onChange(of: photoURL) { _ in
+            if let url = photoURL, let position = photoIndexToSet {
+                widgetBuilder.select(photo: url, in: position)
+            }
         }
     }
     

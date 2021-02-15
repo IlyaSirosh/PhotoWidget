@@ -10,7 +10,7 @@ import WidgetKit
 
 
 class WidgetBuilderViewModel: ObservableObject {
-    @Published var builder: WidgetBuilder
+    @Published private var builder: WidgetBuilder
     
     convenience init() {
         self.init(builder: WidgetBuilder())
