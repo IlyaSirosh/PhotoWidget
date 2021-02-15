@@ -12,57 +12,60 @@ struct PhotoWidgetView: View {
     let config: PhotoWidgetData
     
     var body: some View {
-        ZStack {
-            Color("backgroundColor")
-                .opacity(0.90)
-                .ignoresSafeArea()
-            layoutViews(for: config.layout)
-                .padding(Const.padding)
+        GeometryReader { geo in
+            ZStack {
+                ContainerRelativeShape()
+                    .fill(Color("backgroundColor").opacity(0.90))
+                    .ignoresSafeArea()
+                layoutViews(for: config.layout, size: geo.size)
+                    .padding(padding(for: geo.size))
+            }
         }
     }
     
     @ViewBuilder
-    func layoutViews(for viewLayout: WidgetLayout) -> some View {
+    func layoutViews(for viewLayout: WidgetLayout, size: CGSize) -> some View {
         switch viewLayout {
         case .item(let index):
-            AnyView(imageView(for: index))
+            AnyView(imageView(for: index, size: size))
         case .columns(let leftColumn, let rightColumn):
-            HStack {
-                leafViews(for: leftColumn)
-                leafViews(for: rightColumn)
+            HStack(spacing: padding(for: size)) {
+                leafViews(for: leftColumn, size: size)
+                leafViews(for: rightColumn, size: size)
             }
         case .rows(let topRow, let bottomRow):
-            VStack {
-                leafViews(for: topRow)
-                leafViews(for: bottomRow)
+            VStack(spacing: padding(for: size)) {
+                leafViews(for: topRow, size: size)
+                leafViews(for: bottomRow, size: size)
             }
         }
     }
     
     @ViewBuilder
-    func leafViews(for viewLayout: WidgetLayout) -> some View {
+    func leafViews(for viewLayout: WidgetLayout, size containerSize: CGSize) -> some View {
         switch viewLayout {
         case .item(let index):
-            AnyView(imageView(for: index))
+            AnyView(imageView(for: index, size: containerSize))
         case .columns(.item(let index1), .item(let index2)):
-            HStack {
-                imageView(for: index1)
-                imageView(for: index2)
+            HStack(spacing: padding(for: containerSize)) {
+                imageView(for: index1, size: containerSize)
+                imageView(for: index2, size: containerSize)
             }
         case .rows(.item(let index1), .item(let index2)):
-            VStack {
-                imageView(for: index1)
-                imageView(for: index2)
+            VStack(spacing: padding(for: containerSize)) {
+                imageView(for: index1, size: containerSize)
+                imageView(for: index2, size: containerSize)
             }
         default:
             EmptyView()
         }
     }
  
-    func imageView(for index: Int) -> some View {
+    func imageView(for index: Int, size containerSize: CGSize) -> some View {
         GeometryReader { geometry in
             ZStack {
-                RoundedRectangle(cornerRadius: Const.cornerRadius)
+                RoundedRectangle(cornerRadius: cornerRadius(for: containerSize))
+//                ContainerRelativeShape() ???
                     .foregroundColor(Color.white.opacity(0.1))
                 if let photos = config.photos, let url = photos[index] {
                     URLImage(url: url) { (image: Image) in
@@ -73,7 +76,7 @@ struct PhotoWidgetView: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .clipped()
-                    .cornerRadius(Const.cornerRadius)
+                    .cornerRadius(cornerRadius(for: containerSize))
                 }
                 Text(String(index))
                     .foregroundColor(.white)
@@ -83,9 +86,13 @@ struct PhotoWidgetView: View {
 
     }
     
-    struct Const {
-        static var padding: CGFloat = 10
-        static var cornerRadius: CGFloat = 15
+    func cornerRadius(for size: CGSize) -> CGFloat {
+        size.height / 10
+    }
+    
+    func padding(for size: CGSize) -> CGFloat {
+        7
+        // TODO check for thumbnail mode to show with smaller/larger paddings
     }
 }
 
