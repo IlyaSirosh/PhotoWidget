@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetUtil {
-    static var padding: CGFloat = 30
+    static var screenPadding: CGFloat = 30
     
     static func aspectRatio(for family: WidgetFamily) -> CGFloat {
         switch family {
@@ -25,7 +25,7 @@ struct WidgetUtil {
     }
     
     static func size(for family: WidgetFamily, in containerSize: CGSize) -> CGSize {
-        let width = containerSize.width - 2*padding
+        let width = containerSize.width - 2*screenPadding
         
         switch family {
         case .systemSmall:
