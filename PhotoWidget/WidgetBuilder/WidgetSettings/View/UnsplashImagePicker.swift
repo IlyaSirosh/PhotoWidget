@@ -1,5 +1,5 @@
 //
-//  UpslashImagePicker.swift
+//  UnslashImagePicker.swift
 //  PhotoWidget
 //
 //  Created by Illya Sirosh on 15.02.2021.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UnsplashPhotoPicker
 
-struct UpsplashImagePicker: UIViewControllerRepresentable {
+struct UnsplashImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     @Binding var url: URL?
     
@@ -33,9 +33,9 @@ struct UpsplashImagePicker: UIViewControllerRepresentable {
     }
     
     class Coordinator: UnsplashPhotoPickerDelegate {
-        var parent: UpsplashImagePicker
+        var parent: UnsplashImagePicker
         
-        init(_ parent: UpsplashImagePicker){
+        init(_ parent: UnsplashImagePicker){
             self.parent = parent
         }
         

@@ -10,7 +10,7 @@
 		496FAA3B25DA811900D0AB34 /* WidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3A25DA811900D0AB34 /* WidgetBuilder.swift */; };
 		496FAA4025DA85FF00D0AB34 /* WidgetBuilderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */; };
 		496FAA4825DAC0FF00D0AB34 /* PhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA4725DAC0FF00D0AB34 /* PhotoButton.swift */; };
-		496FAA4C25DADF6800D0AB34 /* UpsplashImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA4B25DADF6800D0AB34 /* UpsplashImagePicker.swift */; };
+		496FAA4C25DADF6800D0AB34 /* UnsplashImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA4B25DADF6800D0AB34 /* UnsplashImagePicker.swift */; };
 		496FAA5925DAF35700D0AB34 /* PhotoWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA5825DAF35700D0AB34 /* PhotoWidgetConfiguration.swift */; };
 		496FAA5C25DAF35D00D0AB34 /* PhotoWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA5825DAF35700D0AB34 /* PhotoWidgetConfiguration.swift */; };
 		49A01F4A25D6B64E00B1E75A /* PhotoWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */; };
@@ -74,8 +74,10 @@
 		496FAA3A25DA811900D0AB34 /* WidgetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilder.swift; sourceTree = "<group>"; };
 		496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderViewModel.swift; sourceTree = "<group>"; };
 		496FAA4725DAC0FF00D0AB34 /* PhotoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoButton.swift; sourceTree = "<group>"; };
-		496FAA4B25DADF6800D0AB34 /* UpsplashImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpsplashImagePicker.swift; sourceTree = "<group>"; };
+		496FAA4B25DADF6800D0AB34 /* UnsplashImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashImagePicker.swift; sourceTree = "<group>"; };
 		496FAA5825DAF35700D0AB34 /* PhotoWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWidgetConfiguration.swift; sourceTree = "<group>"; };
+		496FAA6325DB1ADB00D0AB34 /* PhotoWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoWidget.entitlements; sourceTree = "<group>"; };
+		496FAA6625DB1B4600D0AB34 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
 		49A01F4625D6B64E00B1E75A /* PhotoWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWidgetApp.swift; sourceTree = "<group>"; };
 		49A01F4D25D6B65100B1E75A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 				49D5BE7425D8522B003EBA9F /* BuilderButton.swift */,
 				49D5BE4725D81D23003EBA9F /* WidgetPreviewView.swift */,
 				496FAA4725DAC0FF00D0AB34 /* PhotoButton.swift */,
-				496FAA4B25DADF6800D0AB34 /* UpsplashImagePicker.swift */,
+				496FAA4B25DADF6800D0AB34 /* UnsplashImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +199,7 @@
 		49A01F3D25D6B64E00B1E75A = {
 			isa = PBXGroup;
 			children = (
+				496FAA6625DB1B4600D0AB34 /* WidgetsExtension.entitlements */,
 				49A01F4825D6B64E00B1E75A /* PhotoWidget */,
 				49A01F6325D6C6E600B1E75A /* Widgets */,
 				49A01F5E25D6C6E600B1E75A /* Frameworks */,
@@ -217,6 +220,7 @@
 		49A01F4825D6B64E00B1E75A /* PhotoWidget */ = {
 			isa = PBXGroup;
 			children = (
+				496FAA6325DB1ADB00D0AB34 /* PhotoWidget.entitlements */,
 				49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */,
 				496FAA3025DA7F9C00D0AB34 /* WidgetBuilder */,
 				49A01F4D25D6B65100B1E75A /* Assets.xcassets */,
@@ -460,7 +464,7 @@
 				49A01F7925D6C92B00B1E75A /* PhotoWidgetView.swift in Sources */,
 				49E0998B25D96BAC00402206 /* SettingsNavigationView.swift in Sources */,
 				49E0998225D9694000402206 /* PhotoSettingsView.swift in Sources */,
-				496FAA4C25DADF6800D0AB34 /* UpsplashImagePicker.swift in Sources */,
+				496FAA4C25DADF6800D0AB34 /* UnsplashImagePicker.swift in Sources */,
 				49D5BE6D25D840B7003EBA9F /* DotsButton.swift in Sources */,
 				49D5BE4F25D821F1003EBA9F /* PhotoWidgetSettings.swift in Sources */,
 				496FAA5925DAF35700D0AB34 /* PhotoWidgetConfiguration.swift in Sources */,
@@ -624,6 +628,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhotoWidget/PhotoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = RSA6B5TSXV;
@@ -648,6 +653,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhotoWidget/PhotoWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = RSA6B5TSXV;
@@ -671,6 +677,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RSA6B5TSXV;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -693,6 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RSA6B5TSXV;
 				INFOPLIST_FILE = Widgets/Info.plist;

@@ -35,7 +35,7 @@ struct PhotoSettingsView: View {
                 
             }
         }.sheet(isPresented: $isPickerPresented, content: {
-            UpsplashImagePicker(url: $photoURL)
+            UnsplashImagePicker(url: $photoURL)
         }).onChange(of: photoURL) { _ in
             if let url = photoURL, let position = photoIndexToSet {
                 widgetBuilder.select(photo: url, in: position)

@@ -12,8 +12,8 @@ struct WidgetBuilder {
     private var store = PhotoWidgetConfiguration()
     private var widget: [WidgetFamily: PhotoWidgetData]
     private(set) var currentFamily: WidgetFamily {
-        willSet {
-            saveChanges()
+        didSet {
+            store.save(family: currentFamily)
         }
     }
     private(set) var layoutOptions: [WidgetLayout]
@@ -60,9 +60,8 @@ struct WidgetBuilder {
     
     private mutating func saveChanges() {
         widget[currentFamily] = widgetData
-        // TODO persist widget
-        store.save(family: currentFamily)
         store.save(configuration: widget)
+        WidgetCenter.shared.reloadTimelines(ofKind: "photo-widget")
     }
     
     mutating func changeWidgetFamily() {
@@ -82,6 +81,3 @@ struct WidgetBuilder {
         self.widgetData = PhotoWidgetData(layout: PhotoWidgetSettings.layouts(for: currentFamily)[0])
     }
 }
-
-
-//var data: PhotoWidgetData =  PhotoWidgetData(layout: PhotoWidgetSettings.mediumLayouts[0], photos: [0: URL(string: "https://images.unsplash.com/photo-1613141276543-74107d388095?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80")!, 2: URL(string: "https://images.unsplash.com/photo-1612541831162-96d8fe7558f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80")!])
