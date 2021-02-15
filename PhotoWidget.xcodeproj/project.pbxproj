@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		496FAA3B25DA811900D0AB34 /* WidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3A25DA811900D0AB34 /* WidgetBuilder.swift */; };
+		496FAA4025DA85FF00D0AB34 /* WidgetBuilderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */; };
 		49A01F4A25D6B64E00B1E75A /* PhotoWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */; };
 		49A01F4E25D6B65100B1E75A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A01F4D25D6B65100B1E75A /* Assets.xcassets */; };
 		49A01F5125D6B65100B1E75A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A01F5025D6B65100B1E75A /* Preview Assets.xcassets */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		496FAA3A25DA811900D0AB34 /* WidgetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilder.swift; sourceTree = "<group>"; };
+		496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderViewModel.swift; sourceTree = "<group>"; };
 		49A01F4625D6B64E00B1E75A /* PhotoWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWidgetApp.swift; sourceTree = "<group>"; };
 		49A01F4D25D6B65100B1E75A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		496FAA3825DA807200D0AB34 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				49E0999125D9700E00402206 /* SettingsNavigationController.swift in Sources */,
 				49D5BE6225D8356A003EBA9F /* WidgetUtil.swift in Sources */,
 				49A01F4A25D6B64E00B1E75A /* PhotoWidgetApp.swift in Sources */,
+				496FAA4025DA85FF00D0AB34 /* WidgetBuilderViewModel.swift in Sources */,
 				49D5BE5B25D82223003EBA9F /* WidgetBuilderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

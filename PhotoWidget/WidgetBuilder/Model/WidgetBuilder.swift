@@ -18,7 +18,7 @@ struct WidgetBuilder {
     }
     
     init() {
-        // Load persisted settings
+        // TODO Load persisted settings
         self.currentFamily = .systemSmall
         self.widgetData = PhotoWidgetData(layout: PhotoWidgetSettings.layouts(for: currentFamily)[0])
     }
@@ -42,7 +42,7 @@ struct WidgetBuilder {
     
     private mutating func saveChanges() {
         widget[currentFamily] = widgetData
-        // save widget
+        // TODO save widget
     }
     
     mutating func changeWidgetFamily() {
