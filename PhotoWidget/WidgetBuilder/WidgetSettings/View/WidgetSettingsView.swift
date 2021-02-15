@@ -31,7 +31,7 @@ struct WidgetSettingsView: View {
 
 
                         BuilderButton(title: "Photos", action: {
-                            push("Photos", AnyView(PhotoSettingsView()))
+                            push("Photos", AnyView(PhotoSettingsView(size: size)))
                         }) {
                             Image(systemName: "photo")
                                 .resizable()

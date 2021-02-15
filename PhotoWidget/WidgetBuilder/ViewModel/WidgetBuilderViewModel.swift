@@ -43,7 +43,11 @@ class WidgetBuilderViewModel: ObservableObject {
         builder.updateWidgetLayout(with: layout)
     }
     
-    func select(photo url: URL?, in position: Int) {
+    func select(photo url: URL, in position: Int) {
         builder.updateWidgetPhoto(position: position, url: url)
+    }
+    
+    func removePhoto(position: Int) {
+        builder.removeWidgetPhoto(position: position)
     }
 }
