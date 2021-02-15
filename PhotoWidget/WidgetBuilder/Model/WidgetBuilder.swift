@@ -10,7 +10,12 @@ import WidgetKit
 
 struct WidgetBuilder {
     private var widget: [WidgetFamily: PhotoWidgetData] = [:]
-    private(set) var currentFamily: WidgetFamily
+    private(set) var currentFamily: WidgetFamily {
+        didSet {
+            self.layoutOptions = PhotoWidgetSettings.layouts(for: currentFamily)
+        }
+    }
+    private(set) var layoutOptions: [WidgetLayout]
     private(set) var widgetData: PhotoWidgetData {
         didSet {
             saveChanges()
@@ -21,11 +26,7 @@ struct WidgetBuilder {
         // TODO Load persisted settings
         self.currentFamily = .systemSmall
         self.widgetData = PhotoWidgetData(layout: PhotoWidgetSettings.layouts(for: currentFamily)[0])
-    }
-    
-    
-    func layoutOptions() -> [WidgetLayout] {
-        PhotoWidgetSettings.layouts(for: currentFamily)
+        self.layoutOptions = PhotoWidgetSettings.layouts(for: currentFamily)
     }
     
     mutating func updateWidgetLayout(with layout: WidgetLayout) {
@@ -53,6 +54,8 @@ struct WidgetBuilder {
         } else {
             initWidgetWithDefaultData()
         }
+        
+        layoutOptions = PhotoWidgetSettings.layouts(for: currentFamily)
     }
     
 
@@ -60,3 +63,6 @@ struct WidgetBuilder {
         self.widgetData = PhotoWidgetData(layout: PhotoWidgetSettings.layouts(for: currentFamily)[0])
     }
 }
+
+
+//var data: PhotoWidgetData =  PhotoWidgetData(layout: PhotoWidgetSettings.mediumLayouts[0], photos: [0: URL(string: "https://images.unsplash.com/photo-1613141276543-74107d388095?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80")!, 2: URL(string: "https://images.unsplash.com/photo-1612541831162-96d8fe7558f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80")!])

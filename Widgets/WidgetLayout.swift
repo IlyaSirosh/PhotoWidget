@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WidgetLayout {
+enum WidgetLayout: Equatable {
     case item(Int)
     indirect case columns(WidgetLayout, WidgetLayout)
     indirect case rows(WidgetLayout, WidgetLayout)
@@ -27,3 +27,4 @@ enum WidgetLayout {
         }
     }
 }
+

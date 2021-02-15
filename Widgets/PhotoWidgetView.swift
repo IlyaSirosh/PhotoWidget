@@ -14,6 +14,7 @@ struct PhotoWidgetView: View {
     var body: some View {
         ZStack {
             Color("backgroundColor")
+                .opacity(0.90)
                 .ignoresSafeArea()
             layoutViews(for: config.layout)
                 .padding(Const.padding)

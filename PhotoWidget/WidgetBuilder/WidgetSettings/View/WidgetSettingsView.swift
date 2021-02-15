@@ -9,16 +9,17 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetSettingsView: View {
-    let family: WidgetFamily
-    var layout: Binding<WidgetLayout>
-    let size: CGSize
+//    @EnvironmentObject var model: WidgetBuilderViewModel
+    
+    var size: CGSize
+    
     
     var body: some View {
         VStack(spacing: padding) {
                 SettingsNavigationView { (push, pop) in
                     HStack(spacing: padding) {
                         BuilderButton(title: "Layout", action: {
-                            let view = LayoutSettingsView(family: family, layout: layout, size: size)
+                            let view = LayoutSettingsView(size: size)
                             push("Layout", AnyView(view))
                         }) {
                             Image(systemName: "uiwindow.split.2x1")

@@ -12,6 +12,10 @@ import WidgetKit
 class WidgetBuilderViewModel: ObservableObject {
     @Published var builder: WidgetBuilder
     
+    convenience init() {
+        self.init(builder: WidgetBuilder())
+    }
+    
     init(builder: WidgetBuilder) {
         self.builder = builder
     }
@@ -25,7 +29,7 @@ class WidgetBuilderViewModel: ObservableObject {
     }
     
     var layoutOptions: [WidgetLayout] {
-        builder.layoutOptions()
+        builder.layoutOptions
     }
     
     

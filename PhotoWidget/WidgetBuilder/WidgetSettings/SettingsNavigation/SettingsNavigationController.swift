@@ -14,7 +14,6 @@ class SettingsNavigationController: ObservableObject {
     
     func push(title: String, view: AnyView ) {
         let value = (title, AnyView(view))
-        print(title)
         viewStack.append(value)
         currentView = value
     }

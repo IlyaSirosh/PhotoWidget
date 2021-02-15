@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsNavigationView<Content: View>: View {
-    @ObservedObject var controller: SettingsNavigationController = SettingsNavigationController()
+    @StateObject var controller: SettingsNavigationController = SettingsNavigationController()
     let content: (@escaping (String, AnyView) -> Void, @escaping () -> Void) -> Content
     
     init(content: @escaping (@escaping (String, AnyView) -> Void, @escaping () -> Void) -> Content ) {

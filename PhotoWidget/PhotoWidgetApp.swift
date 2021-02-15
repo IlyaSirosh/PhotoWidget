@@ -13,6 +13,7 @@ struct PhotoWidgetApp: App {
         WindowGroup {
             NavigationView {
                 WidgetBuilderView()
+                    .environmentObject(WidgetBuilderViewModel())
             }
         }
     }

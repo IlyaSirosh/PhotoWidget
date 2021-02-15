@@ -31,7 +31,7 @@
 		49D5BE5E25D82359003EBA9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A01F6625D6C6E700B1E75A /* Assets.xcassets */; };
 		49D5BE6225D8356A003EBA9F /* WidgetUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6125D8356A003EBA9F /* WidgetUtil.swift */; };
 		49D5BE6625D83FB6003EBA9F /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */; };
-		49D5BE6D25D840B7003EBA9F /* WidgetFamilySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6C25D840B7003EBA9F /* WidgetFamilySelector.swift */; };
+		49D5BE6D25D840B7003EBA9F /* DotsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE6C25D840B7003EBA9F /* DotsButton.swift */; };
 		49D5BE7525D8522B003EBA9F /* BuilderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE7425D8522B003EBA9F /* BuilderButton.swift */; };
 		49E0998225D9694000402206 /* PhotoSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0998125D9694000402206 /* PhotoSettingsView.swift */; };
 		49E0998625D969A200402206 /* LayoutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0998525D969A200402206 /* LayoutSettingsView.swift */; };
@@ -85,7 +85,7 @@
 		49D5BE4725D81D23003EBA9F /* WidgetPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreviewView.swift; sourceTree = "<group>"; };
 		49D5BE6125D8356A003EBA9F /* WidgetUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUtil.swift; sourceTree = "<group>"; };
 		49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
-		49D5BE6C25D840B7003EBA9F /* WidgetFamilySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetFamilySelector.swift; sourceTree = "<group>"; };
+		49D5BE6C25D840B7003EBA9F /* DotsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsButton.swift; sourceTree = "<group>"; };
 		49D5BE7425D8522B003EBA9F /* BuilderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderButton.swift; sourceTree = "<group>"; };
 		49E0998125D9694000402206 /* PhotoSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSettingsView.swift; sourceTree = "<group>"; };
 		49E0998525D969A200402206 /* LayoutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSettingsView.swift; sourceTree = "<group>"; };
@@ -121,6 +121,7 @@
 				496FAA3925DA808F00D0AB34 /* Model */,
 				496FAA3525DA805D00D0AB34 /* View */,
 				496FAA3825DA807200D0AB34 /* ViewModel */,
+				496FAA3125DA801300D0AB34 /* WidgetSettings */,
 			);
 			path = WidgetBuilder;
 			sourceTree = "<group>";
@@ -137,11 +138,11 @@
 		496FAA3225DA805100D0AB34 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */,
+				49E0998525D969A200402206 /* LayoutSettingsView.swift */,
+				49E0998125D9694000402206 /* PhotoSettingsView.swift */,
 				49D5BE7425D8522B003EBA9F /* BuilderButton.swift */,
 				49D5BE4725D81D23003EBA9F /* WidgetPreviewView.swift */,
-				49D5BE6525D83FB6003EBA9F /* WidgetSettingsView.swift */,
-				49E0998125D9694000402206 /* PhotoSettingsView.swift */,
-				49E0998525D969A200402206 /* LayoutSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				49D5BE4025D81C1A003EBA9F /* WidgetBuilderView.swift */,
-				49D5BE6C25D840B7003EBA9F /* WidgetFamilySelector.swift */,
+				49D5BE6C25D840B7003EBA9F /* DotsButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,7 +198,6 @@
 			children = (
 				49A01F4925D6B64E00B1E75A /* PhotoWidgetApp.swift */,
 				496FAA3025DA7F9C00D0AB34 /* WidgetBuilder */,
-				496FAA3125DA801300D0AB34 /* WidgetSettings */,
 				49A01F4D25D6B65100B1E75A /* Assets.xcassets */,
 				49A01F5225D6B65100B1E75A /* Info.plist */,
 				49A01F4F25D6B65100B1E75A /* Preview Content */,
@@ -359,7 +359,7 @@
 				49A01F7925D6C92B00B1E75A /* PhotoWidgetView.swift in Sources */,
 				49E0998B25D96BAC00402206 /* SettingsNavigationView.swift in Sources */,
 				49E0998225D9694000402206 /* PhotoSettingsView.swift in Sources */,
-				49D5BE6D25D840B7003EBA9F /* WidgetFamilySelector.swift in Sources */,
+				49D5BE6D25D840B7003EBA9F /* DotsButton.swift in Sources */,
 				49D5BE4F25D821F1003EBA9F /* PhotoWidgetSettings.swift in Sources */,
 				49D5BE5425D82206003EBA9F /* WidgetPreviewView.swift in Sources */,
 				49E0998625D969A200402206 /* LayoutSettingsView.swift in Sources */,

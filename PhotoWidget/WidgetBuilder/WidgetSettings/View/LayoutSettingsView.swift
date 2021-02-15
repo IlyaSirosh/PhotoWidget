@@ -9,17 +9,18 @@ import SwiftUI
 import WidgetKit
 
 struct LayoutSettingsView: View {
-    var layout: Binding<WidgetLayout>
-    private var layouts: [WidgetLayout]
+    @EnvironmentObject var widgetBuilder: WidgetBuilderViewModel
     var size: CGSize
-    var family: WidgetFamily
-
-    init(family: WidgetFamily, layout: Binding<WidgetLayout>,  size: CGSize) {
-        self.family = family
-        self.size = size
-        self.layout = layout
-        self.layouts = PhotoWidgetSettings.layouts(for: family)
+    var layout: WidgetLayout {
+        widgetBuilder.widgetData.layout
     }
+    var layouts: [WidgetLayout] {
+        widgetBuilder.layoutOptions
+    }
+    var family: WidgetFamily {
+        widgetBuilder.family
+    }
+
     
     
     var body: some View {
@@ -46,9 +47,13 @@ struct LayoutSettingsView: View {
     
     func widget(for layout: WidgetLayout) -> some View {
         PhotoWidgetView(config: PhotoWidgetData(layout: layout))
+            .background(self.layout == layout ? Color.white : Color.clear)
             .frame(width: width(for: size))
             .cornerRadius(height(for: size) / 5)
             .aspectRatio(WidgetUtil.aspectRatio(for: family), contentMode: .fit)
+            .onTapGesture{
+                widgetBuilder.select(layout: layout)
+            }
     }
     
     func width(for size: CGSize) -> CGFloat {
