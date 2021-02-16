@@ -23,7 +23,7 @@ struct PhotoWidget: Widget {
 
 
 struct PhotoProvider: TimelineProvider {
-    private let store = PhotoWidgetConfiguration()
+    private let store = PhotoWidgetStore()
     
     func placeholder(in context: Context) -> PhotoEntry {
         simplePhotoEntry()

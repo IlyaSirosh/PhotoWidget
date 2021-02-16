@@ -9,7 +9,7 @@ import Foundation
 import WidgetKit
 
 struct WidgetBuilder {
-    private var store = PhotoWidgetConfiguration()
+    private var store = PhotoWidgetStore()
     private var widget: [WidgetFamily: PhotoWidgetData]
     private(set) var currentFamily: WidgetFamily {
         didSet {

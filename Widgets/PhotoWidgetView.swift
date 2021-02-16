@@ -67,19 +67,17 @@ struct PhotoWidgetView: View {
                 RoundedRectangle(cornerRadius: cornerRadius(for: containerSize))
 //                ContainerRelativeShape() ???
                     .foregroundColor(Color.white.opacity(0.1))
-                if let photos = config.photos, let url = photos[index] {
-                    URLImage(url: url) { (image: Image) in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .clipped()
-                    .cornerRadius(cornerRadius(for: containerSize))
+                if let photos = config.photos,
+                   let url = photos[index],
+                   let imageData = try? Data(contentsOf: url),
+                   let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipped()
+                        .cornerRadius(cornerRadius(for: containerSize))
                 }
-                Text(String(index))
-                    .foregroundColor(.white)
             }
         }
         

@@ -47,22 +47,21 @@ class WidgetBuilderViewModel: ObservableObject {
     
     func select(photo url: URL, in position: Int) {
         builder.updateWidgetPhoto(position: position, url: url)
-        imageService.saveImage(url: url) { [unowned self] result in
-            switch result {
-            case .success(let newURL):
-                print("new file url: \(newURL)")
-                self.builder.updateWidgetPhoto(position: position, url: newURL)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+//        imageService.saveImage(url: url) { [unowned self] result in
+//            switch result {
+//            case .success(let newURL):
+//                self.builder.updateWidgetPhoto(position: position, url: newURL)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
     
     func removePhoto(position: Int) {
         builder.removeWidgetPhoto(position: position)
-        if let url = builder.widgetData.photos[position] {
-            imageService.removeImage(url: url)
-        }
+//        if let url = builder.widgetData.photos[position] {
+//            imageService.removeImage(url: url)
+//        }
         
     }
 }

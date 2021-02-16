@@ -8,9 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct WidgetSettingsView: View {
-//    @EnvironmentObject var model: WidgetBuilderViewModel
-    
+struct WidgetSettingsView: View {  
     var size: CGSize
     
     

@@ -8,7 +8,7 @@
 import Foundation
 import WidgetKit
 
-struct PhotoWidgetConfiguration {
+struct PhotoWidgetStore {
     private let store = UserDefaults(suiteName: "group.sirosh.photowidget.widgets")!
     
     func loadCurrentWidgetFamily() -> WidgetFamily? {
