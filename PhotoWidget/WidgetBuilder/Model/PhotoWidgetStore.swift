@@ -12,13 +12,16 @@ struct PhotoWidgetStore {
     private let store = UserDefaults(suiteName: "group.sirosh.photowidget.widgets")!
     
     func loadCurrentWidgetFamily() -> WidgetFamily? {
-        guard let data = store.data(forKey: Const.family) else { return nil }
+        guard let data = store.data(forKey: Const.family) else {
+            print(StoreError.noFamilyError)
+            return nil
+        }
         
         do {
             let family = try JSONDecoder().decode(WidgetFamily.self, from: data)
             return family
         } catch {
-            print("Cannot load widget family \n \(error)")
+            print(StoreError.familyDecodeError)
         }
         
         return nil
@@ -26,7 +29,7 @@ struct PhotoWidgetStore {
     
     func loadWidget() -> [WidgetFamily: PhotoWidgetData] {
         guard let data = store.data(forKey: Const.configuration) else {
-            print("no data saved for widget")
+            print(StoreError.noConfigurationError)
             return [:]
         }
         
@@ -34,7 +37,7 @@ struct PhotoWidgetStore {
             let conf = try JSONDecoder().decode([WidgetFamily: PhotoWidgetData].self, from: data)
             return conf
         } catch {
-            print("Cannot load configuration \n \(error)")
+            print(StoreError.configurationDecodeError)
         }
         
         return [:]
@@ -46,7 +49,7 @@ struct PhotoWidgetStore {
                 let data = try JSONEncoder().encode(configuration)
                 store.setValue(data, forKey: Const.configuration)
             } catch {
-                print("Cannot save configuration \n \(error)")
+                print(StoreError.configurationSaveError)
             }
         }
     }
@@ -57,7 +60,7 @@ struct PhotoWidgetStore {
                 let data = try JSONEncoder().encode(family)
                 store.setValue(data, forKey: Const.family)
             } catch {
-                print("Cannot save widget family \n \(error)")
+                print(StoreError.familySaveError)
             }
         }
     }
@@ -65,6 +68,15 @@ struct PhotoWidgetStore {
     struct Const {
         static let configuration = "configuration"
         static let family = "family"
+    }
+    
+    enum StoreError: String, Error {
+        case configurationSaveError = "Cannot save configuration"
+        case familySaveError = "Cannot save widget family"
+        case noConfigurationError = "Cannot load configuration: no data available"
+        case noFamilyError = "Cannot load family: no data available"
+        case configurationDecodeError = "Cannot decode configuration"
+        case familyDecodeError = "Cannot decode widget family"
     }
 }
 
