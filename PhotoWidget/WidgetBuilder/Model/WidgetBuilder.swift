@@ -9,6 +9,7 @@ import Foundation
 import WidgetKit
 
 struct WidgetBuilder {
+    private let widgetKind = "photo-widget"
     private var store = PhotoWidgetStore()
     private var widget: [WidgetFamily: PhotoWidgetData]
     private(set) var currentFamily: WidgetFamily {
@@ -24,7 +25,6 @@ struct WidgetBuilder {
     }
     
     init() {
-        // TODO Load persisted settings
         self.currentFamily = store.loadCurrentWidgetFamily() ?? .systemSmall
         self.layoutOptions = PhotoWidgetSettings.layouts(for: currentFamily)
         self.widget = store.loadWidget()
@@ -41,8 +41,6 @@ struct WidgetBuilder {
 //        let previousLayout = widgetData.layout
         
         widgetData.layout = layout
-        
-        // TODO transition photo for layouts
     }
     
     mutating func updateWidgetPhoto(position: Int, url: URL) {
@@ -50,18 +48,13 @@ struct WidgetBuilder {
     }
     
     mutating func removeWidgetPhoto(position: Int) {
-        
-        if let url = widgetData.photos[position] {
-            widgetData.photos[position] = nil
-            
-            // TODO clean up data of url
-        }
+        widgetData.photos[position] = nil
     }
     
     private mutating func saveChanges() {
         widget[currentFamily] = widgetData
         store.save(configuration: widget)
-        WidgetCenter.shared.reloadTimelines(ofKind: "photo-widget")
+        WidgetCenter.shared.reloadTimelines(ofKind: widgetKind)
     }
     
     mutating func changeWidgetFamily() {

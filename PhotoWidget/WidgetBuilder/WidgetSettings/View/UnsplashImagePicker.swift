@@ -40,7 +40,6 @@ struct UnsplashImagePicker: UIViewControllerRepresentable {
         }
         
         func unsplashPhotoPicker(_ photoPicker: UnsplashPhotoPicker, didSelectPhotos photos: [UnsplashPhoto]) {
-            print("Unsplash photo picker did select \(photos.count) photo(s)")
             
             if let photo = photos.first {
                 parent.url = photo.urls[.regular]

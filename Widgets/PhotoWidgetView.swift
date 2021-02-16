@@ -65,7 +65,6 @@ struct PhotoWidgetView: View {
         GeometryReader { geometry in
             ZStack {
                 RoundedRectangle(cornerRadius: cornerRadius(for: containerSize))
-//                ContainerRelativeShape() ???
                     .foregroundColor(Color.white.opacity(0.1))
                 if let photos = config.photos,
                    let url = photos[index],

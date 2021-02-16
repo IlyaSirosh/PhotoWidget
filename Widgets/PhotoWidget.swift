@@ -16,8 +16,8 @@ struct PhotoWidget: Widget {
         StaticConfiguration(kind: kind, provider: PhotoProvider()) { entry in
             PhotoWidgetView(config: entry.widgetData )
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Photo Widget")
+        .description("Customize photos and layout")
     }
 }
 
@@ -30,13 +30,7 @@ struct PhotoProvider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (PhotoEntry) -> Void) {
-        
-//        if context.isPreview {
-//            completion(simplePhotoEntry())
-//        } else {
-            completion(photoEntry(for: Date(), in: context))
-//        }
-        
+        completion(photoEntry(for: Date(), in: context))
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<PhotoEntry>) -> Void) {
@@ -52,10 +46,9 @@ struct PhotoProvider: TimelineProvider {
     
     
     func photoEntry(for date: Date, in context: Context) -> PhotoEntry {
-        print("get photo entry")
         let family = context.family
         let configuration = store.loadWidget()
-        print(configuration)
+
         if let data = configuration[family] {
             return PhotoEntry(date: date, widgetData: data)
         } else {
@@ -65,7 +58,7 @@ struct PhotoProvider: TimelineProvider {
     }
     
     func simplePhotoEntry(for date: Date = Date()) -> PhotoEntry {
-        print("get simple entry")
+
         return PhotoEntry(date: date, widgetData: .example)
     }
 }
