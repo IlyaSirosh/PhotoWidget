@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49653C9125DBF1C20014081C /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7825D6C92B00B1E75A /* PhotoWidgetView.swift */; };
 		49653C9225DBF1C20014081C /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7825D6C92B00B1E75A /* PhotoWidgetView.swift */; };
+		49653C9A25DBFBCF0014081C /* PhotoWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5BE3B25D81B09003EBA9F /* PhotoWidgetSettings.swift */; };
 		496FAA3B25DA811900D0AB34 /* WidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3A25DA811900D0AB34 /* WidgetBuilder.swift */; };
 		496FAA4025DA85FF00D0AB34 /* WidgetBuilderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */; };
 		496FAA4825DAC0FF00D0AB34 /* PhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA4725DAC0FF00D0AB34 /* PhotoButton.swift */; };
@@ -502,6 +503,7 @@
 				49A01F8125D6C93600B1E75A /* PhotoWidget.swift in Sources */,
 				49A01F8825D6CA0F00B1E75A /* PhotoWidgetData.swift in Sources */,
 				49D5BE2825D7F45A003EBA9F /* WidgetLayout.swift in Sources */,
+				49653C9A25DBFBCF0014081C /* PhotoWidgetSettings.swift in Sources */,
 				49653C9225DBF1C20014081C /* PhotoWidgetView.swift in Sources */,
 				496FAA7625DBCD2300D0AB34 /* PhotoWidgetStore.swift in Sources */,
 			);

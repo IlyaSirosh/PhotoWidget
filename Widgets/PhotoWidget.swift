@@ -26,7 +26,7 @@ struct PhotoProvider: TimelineProvider {
     private let store = PhotoWidgetStore()
     
     func placeholder(in context: Context) -> PhotoEntry {
-        simplePhotoEntry()
+        simplePhotoEntry(in: context)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (PhotoEntry) -> Void) {
@@ -52,14 +52,14 @@ struct PhotoProvider: TimelineProvider {
         if let data = configuration[family] {
             return PhotoEntry(date: date, widgetData: data)
         } else {
-            return simplePhotoEntry()
+            return simplePhotoEntry(in: context)
         }
         
     }
     
-    func simplePhotoEntry(for date: Date = Date()) -> PhotoEntry {
+    func simplePhotoEntry(for date: Date = Date(), in context: Context) -> PhotoEntry {
 
-        return PhotoEntry(date: date, widgetData: .example)
+        return PhotoEntry(date: date, widgetData: PhotoWidgetData(layout: PhotoWidgetSettings.layouts(for: context.family)[0]))
     }
 }
 
