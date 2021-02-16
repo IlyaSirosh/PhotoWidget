@@ -13,6 +13,7 @@ struct LayoutSettingsView: View {
 
     @Environment(\.buttonWidth) var buttonWidth: CGFloat
     @Environment(\.buttonCornerRadius) var buttonCornerRadius: CGFloat
+    @Environment(\.buttonSpacing) var buttonSpacing: CGFloat
     
     var size: CGSize
     var layout: WidgetLayout {
@@ -39,11 +40,11 @@ struct LayoutSettingsView: View {
     @ViewBuilder
     func widgetContainer<Content: View>(@ViewBuilder  content: () -> Content ) -> some View {
         if family == .systemMedium {
-            LazyVGrid(columns: [ GridItem(.adaptive(minimum: 100)) , GridItem(.adaptive(minimum: 100))], alignment: .center, spacing: padding) {
+            LazyVGrid(columns: [ GridItem(.adaptive(minimum: 100)) , GridItem(.adaptive(minimum: 100))], alignment: .center, spacing: buttonSpacing) {
                 content()
             }
         } else {
-            HStack(spacing: padding) {
+            HStack(spacing: buttonSpacing) {
                 content()
             }
         }
@@ -51,9 +52,9 @@ struct LayoutSettingsView: View {
     
     func widget(for layout: WidgetLayout) -> some View {
         PhotoWidgetView(config: PhotoWidgetData(layout: layout), photoShape: RoundedRectangle(cornerRadius: buttonCornerRadius - 2), spacing: 4)
-            .clipShape(RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous))
-            .frame(width: width(for: size))
+            .clipShape(RoundedRectangle(cornerRadius: buttonCornerRadius))
             .padding(0.5)
+            .frame(width: width(for: size))
             .background(self.layout == layout ? Color.white : Color.white.opacity(0.1))
             .cornerRadius(buttonCornerRadius)
             .aspectRatio(WidgetUtil.aspectRatio(for: family), contentMode: .fit)
@@ -64,11 +65,10 @@ struct LayoutSettingsView: View {
     
     func width(for size: CGSize) -> CGFloat {
         if family == .systemMedium {
-            return (size.width - 3*padding) / 2
+            return (size.width - 3*buttonSpacing) / 2
         } else {
             return buttonWidth
         }
         
     }
-    let padding: CGFloat = 20
 }

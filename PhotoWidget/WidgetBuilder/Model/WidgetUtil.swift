@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetUtil {
-    static var screenPadding: CGFloat = 30
+    static var screenPadding: CGFloat = 20
     
     static func aspectRatio(for family: WidgetFamily) -> CGFloat {
         switch family {
