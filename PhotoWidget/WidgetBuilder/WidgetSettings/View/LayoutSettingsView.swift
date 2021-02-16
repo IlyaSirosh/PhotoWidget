@@ -10,6 +10,10 @@ import WidgetKit
 
 struct LayoutSettingsView: View {
     @EnvironmentObject var widgetBuilder: WidgetBuilderViewModel
+
+    @Environment(\.buttonWidth) var buttonWidth: CGFloat
+    @Environment(\.buttonCornerRadius) var buttonCornerRadius: CGFloat
+    
     var size: CGSize
     var layout: WidgetLayout {
         widgetBuilder.widgetData.layout
@@ -49,7 +53,7 @@ struct LayoutSettingsView: View {
         PhotoWidgetView(config: PhotoWidgetData(layout: layout))
             .background(self.layout == layout ? Color.white : Color.clear)
             .frame(width: width(for: size))
-            .cornerRadius(height(for: size) / 5)
+            .cornerRadius(buttonCornerRadius)
             .aspectRatio(WidgetUtil.aspectRatio(for: family), contentMode: .fit)
             .onTapGesture{
                 widgetBuilder.select(layout: layout)
@@ -60,16 +64,9 @@ struct LayoutSettingsView: View {
         if family == .systemMedium {
             return (size.width - 3*padding) / 2
         } else {
-            return (size.width - 5*padding) / 4
+            return buttonWidth
         }
         
     }
-    
-    func height(for size: CGSize) -> CGFloat {
-        
-        return (size.width - 5*padding) / 4
-    }
-    
-    
     let padding: CGFloat = 20
 }

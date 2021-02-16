@@ -13,7 +13,7 @@ struct WidgetSettingsView: View {
     
     
     var body: some View {
-        VStack(spacing: padding) {
+        VStack {
                 SettingsNavigationView { (push, pop) in
                     HStack(spacing: padding) {
                         BuilderButton(title: "Layout", action: {
@@ -24,9 +24,6 @@ struct WidgetSettingsView: View {
                                 .resizable()
                                 .rotationEffect(.degrees(90))
                         }
-                            .frame(width: buttonWidth(for: size))
-
-
 
                         BuilderButton(title: "Photos", action: {
                             push("Photos", AnyView(PhotoSettingsView(size: size)))
@@ -35,13 +32,15 @@ struct WidgetSettingsView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                         }
-                            .frame(width: buttonWidth(for: size))
                     }
                 }
                 .foregroundColor(.white)
     
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, idealHeight: heigth(for: size), alignment: .center)
+        .environment(\.buttonWidth, buttonWidth(for: size))
+        .environment(\.buttonCornerRadius, cornerRadius(for: size))
+        .environment(\.buttonSpacing, padding)
     }
     
 
@@ -55,5 +54,9 @@ struct WidgetSettingsView: View {
     
     private func heigth(for size: CGSize) -> CGFloat {
         return buttonWidth(for: size) + 3 * padding
+    }
+    
+    private func cornerRadius(for size: CGSize) -> CGFloat {
+        buttonWidth(for: size) / 5
     }
 }

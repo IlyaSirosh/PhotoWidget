@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BuilderButton<Content: View>: View {
+    @Environment(\.buttonWidth) var buttonWidth
+    @Environment(\.buttonCornerRadius) var buttonCornerRadius
+    
     var title: String?
     let content: () -> Content
     let action: () -> Void
@@ -22,8 +25,9 @@ struct BuilderButton<Content: View>: View {
         Button(action: action)  {
             VStack {
                 ZStack {
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .frame(width: size, height: size, alignment: .center)
+                    RoundedRectangle(cornerRadius: buttonCornerRadius)
+                        .frame(width: buttonWidth, height: buttonWidth)
+                        .aspectRatio(1, contentMode: .fit)
                         .foregroundColor(Color.white.opacity(0.1))
                     content()
                         .frame(width: contentSize, height: contentSize, alignment: .center)
@@ -39,10 +43,7 @@ struct BuilderButton<Content: View>: View {
         }
     }
     
-   
-    let size: CGFloat = 70
     let contentSize: CGFloat = 30
-    let cornerRadius: CGFloat = 15
 }
 
 struct BuilderButton_Previews: PreviewProvider {

@@ -9,6 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetPreviewView<Content: View>: View {
+    @Environment(\.buttonCornerRadius) var buttonCornerRadius: CGFloat
     let family: WidgetFamily
     let content: () -> Content
     
@@ -24,7 +25,7 @@ struct WidgetPreviewView<Content: View>: View {
         GeometryReader { geometry in
             VStack {
                 content()
-                    .cornerRadius(20)
+                    .cornerRadius(buttonCornerRadius)
                     .frame(width: WidgetUtil.size(for: family, in: geometry.size).width)
                     .aspectRatio(aspectRatio, contentMode: .fit)
             }

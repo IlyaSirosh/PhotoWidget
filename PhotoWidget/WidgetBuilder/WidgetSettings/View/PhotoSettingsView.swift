@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PhotoSettingsView: View {
     @EnvironmentObject var widgetBuilder: WidgetBuilderViewModel
+    @Environment(\.buttonSpacing) var buttonSpacing: CGFloat
+    
     var size: CGSize
     @State var isPickerPresented = false
     @State var photoIndexToSet: Int? {
@@ -19,7 +21,7 @@ struct PhotoSettingsView: View {
     @State var photoURL: URL?
     
     var body: some View {
-        HStack(spacing: padding) {
+        HStack(spacing: buttonSpacing) {
             ForEach(0..<widgetBuilder.widgetData.layout.count, id: \.self) { index in
        
                 PhotoButton(
@@ -31,21 +33,16 @@ struct PhotoSettingsView: View {
                     onRemove: {
                         widgetBuilder.removePhoto(position: index)
                     })
-                        .frame(width: width(for: size), height: width(for: size))
-                
+
             }
-        }.sheet(isPresented: $isPickerPresented, content: {
+        }
+        .sheet(isPresented: $isPickerPresented, content: {
             UnsplashImagePicker(url: $photoURL)
-        }).onChange(of: photoURL) { _ in
+        })
+        .onChange(of: photoURL) { _ in
             if let url = photoURL, let position = photoIndexToSet {
                 widgetBuilder.select(photo: url, in: position)
             }
         }
     }
-    
-    func width(for size: CGSize) -> CGFloat {
-        (size.width - 5*padding) / 4
-    }
-    
-    let padding: CGFloat = 20
 }

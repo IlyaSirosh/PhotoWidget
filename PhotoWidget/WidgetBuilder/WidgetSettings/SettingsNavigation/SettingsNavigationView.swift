@@ -18,36 +18,38 @@ struct SettingsNavigationView<Content: View>: View {
     @ViewBuilder
     var body: some View {
         VStack {
-            if let subview = controller.currentView {
-                subview.view
-            } else {
-                content(controller.push(title:view:), controller.pop)
-            }
-           
-            VStack{
-                Divider()
-                HStack {
-                    Spacer()
-                    Text(controller.currentView?.title ?? "")
-                        .font(.headline)
-                    Spacer()
-                    Button(action: {
-                        controller.pop()
-                    }, label: {
-                        Image(systemName: "multiply")
-                            .padding(10)
-                            .font(.headline)
-                    })
+            Group {
+                if let subview = controller.currentView {
+                    subview.view
+                } else {
+                    content(controller.push(title:view:), controller.pop)
                 }
             }
-            .padding(.top, 10)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+  
+            Group {
+                Divider()
+                ZStack {
+                    
+                    Text(controller.currentView?.title ?? "")
+                        .font(.headline)
+               
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            controller.pop()
+                        }, label: {
+                            Image(systemName: "multiply")
+                                .padding(10)
+                                .font(.headline)
+                        })
+                    }
+                    
+                }
+                .frame(height: 40)
+            }
             .opacity(controller.currentView != nil ? 1 : 0)
+
         }
     }
 }
-
-//struct SettingsNavigationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsNavigationView()
-//    }
-//}

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import URLImage
 
 struct PhotoWidgetView: View {
     let config: PhotoWidgetData
@@ -84,12 +83,12 @@ struct PhotoWidgetView: View {
     }
     
     func cornerRadius(for size: CGSize) -> CGFloat {
-        size.height / 10
+        15
     }
     
     func padding(for size: CGSize) -> CGFloat {
         7
-        // TODO check for thumbnail mode to show with smaller/larger paddings
+        //TODO check for thumbnail mode to show with smaller/larger paddings
     }
 }
 
