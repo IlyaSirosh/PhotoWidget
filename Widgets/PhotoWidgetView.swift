@@ -7,8 +7,18 @@
 
 import SwiftUI
 
-struct PhotoWidgetView: View {
+struct PhotoWidgetView<PhotoShape: Shape>: View {
     let config: PhotoWidgetData
+    
+    let photoShape: PhotoShape
+    
+    let spacing: CGFloat
+    
+    init(config: PhotoWidgetData, photoShape: PhotoShape, spacing: CGFloat = 8) {
+        self.config = config
+        self.photoShape = photoShape
+        self.spacing = spacing
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -17,7 +27,7 @@ struct PhotoWidgetView: View {
                     .fill(Color("backgroundColor").opacity(0.90))
                     .ignoresSafeArea()
                 layoutViews(for: config.layout, size: geo.size)
-                    .padding(padding(for: geo.size))
+                    .padding(spacing)
             }
         }
     }
@@ -28,12 +38,12 @@ struct PhotoWidgetView: View {
         case .item(let index):
             AnyView(imageView(for: index, size: size))
         case .columns(let leftColumn, let rightColumn):
-            HStack(spacing: padding(for: size)) {
+            HStack(spacing: spacing) {
                 leafViews(for: leftColumn, size: size)
                 leafViews(for: rightColumn, size: size)
             }
         case .rows(let topRow, let bottomRow):
-            VStack(spacing: padding(for: size)) {
+            VStack(spacing: spacing) {
                 leafViews(for: topRow, size: size)
                 leafViews(for: bottomRow, size: size)
             }
@@ -46,12 +56,12 @@ struct PhotoWidgetView: View {
         case .item(let index):
             AnyView(imageView(for: index, size: containerSize))
         case .columns(.item(let index1), .item(let index2)):
-            HStack(spacing: padding(for: containerSize)) {
+            HStack(spacing: spacing) {
                 imageView(for: index1, size: containerSize)
                 imageView(for: index2, size: containerSize)
             }
         case .rows(.item(let index1), .item(let index2)):
-            VStack(spacing: padding(for: containerSize)) {
+            VStack(spacing: spacing) {
                 imageView(for: index1, size: containerSize)
                 imageView(for: index2, size: containerSize)
             }
@@ -63,7 +73,7 @@ struct PhotoWidgetView: View {
     func imageView(for index: Int, size containerSize: CGSize) -> some View {
         GeometryReader { geometry in
             ZStack {
-                RoundedRectangle(cornerRadius: cornerRadius(for: containerSize))
+                photoShape
                     .foregroundColor(Color.white.opacity(0.1))
                 if let photos = config.photos,
                    let url = photos[index],
@@ -73,22 +83,12 @@ struct PhotoWidgetView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: geometry.size.height)
-                        .clipped()
-                        .cornerRadius(cornerRadius(for: containerSize))
+                        .clipShape(photoShape)
                 }
             }
         }
         
 
-    }
-    
-    func cornerRadius(for size: CGSize) -> CGFloat {
-        15
-    }
-    
-    func padding(for size: CGSize) -> CGFloat {
-        7
-        //TODO check for thumbnail mode to show with smaller/larger paddings
     }
 }
 
@@ -98,7 +98,7 @@ struct PhotoWidgetView_Previews: PreviewProvider {
               RoundedRectangle(cornerRadius: 24, style: .continuous)
                   .fill(Color(.systemBackground))
             PhotoWidgetView(config: PhotoWidgetData(
-                                layout: .columns(.rows(.item(0), .item(3)), .rows(.item(1), .item(2)))))
+                                layout: .columns(.rows(.item(0), .item(3)), .rows(.item(1), .item(2)))), photoShape: RoundedRectangle(cornerRadius: 25))
         }
         .preferredColorScheme(.light)
         .frame(width: 162*2, height: 162)

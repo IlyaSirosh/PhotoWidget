@@ -50,9 +50,11 @@ struct LayoutSettingsView: View {
     }
     
     func widget(for layout: WidgetLayout) -> some View {
-        PhotoWidgetView(config: PhotoWidgetData(layout: layout))
-            .background(self.layout == layout ? Color.white : Color.clear)
+        PhotoWidgetView(config: PhotoWidgetData(layout: layout), photoShape: RoundedRectangle(cornerRadius: buttonCornerRadius - 2), spacing: 4)
+            .clipShape(RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous))
             .frame(width: width(for: size))
+            .padding(0.5)
+            .background(self.layout == layout ? Color.white : Color.white.opacity(0.1))
             .cornerRadius(buttonCornerRadius)
             .aspectRatio(WidgetUtil.aspectRatio(for: family), contentMode: .fit)
             .onTapGesture{

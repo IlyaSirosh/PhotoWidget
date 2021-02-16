@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49653C9125DBF1C20014081C /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7825D6C92B00B1E75A /* PhotoWidgetView.swift */; };
+		49653C9225DBF1C20014081C /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7825D6C92B00B1E75A /* PhotoWidgetView.swift */; };
 		496FAA3B25DA811900D0AB34 /* WidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3A25DA811900D0AB34 /* WidgetBuilder.swift */; };
 		496FAA4025DA85FF00D0AB34 /* WidgetBuilderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA3F25DA85FF00D0AB34 /* WidgetBuilderViewModel.swift */; };
 		496FAA4825DAC0FF00D0AB34 /* PhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FAA4725DAC0FF00D0AB34 /* PhotoButton.swift */; };
@@ -22,8 +24,6 @@
 		49A01F6225D6C6E600B1E75A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A01F6125D6C6E600B1E75A /* SwiftUI.framework */; };
 		49A01F6725D6C6E700B1E75A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A01F6625D6C6E700B1E75A /* Assets.xcassets */; };
 		49A01F6B25D6C6E700B1E75A /* WidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 49A01F5D25D6C6E600B1E75A /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		49A01F7925D6C92B00B1E75A /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7825D6C92B00B1E75A /* PhotoWidgetView.swift */; };
-		49A01F7C25D6C93000B1E75A /* PhotoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7825D6C92B00B1E75A /* PhotoWidgetView.swift */; };
 		49A01F8125D6C93600B1E75A /* PhotoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F7225D6C78B00B1E75A /* PhotoWidget.swift */; };
 		49A01F8525D6C9A900B1E75A /* PhotoWidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F8425D6C9A900B1E75A /* PhotoWidgetData.swift */; };
 		49A01F8825D6CA0F00B1E75A /* PhotoWidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A01F8425D6C9A900B1E75A /* PhotoWidgetData.swift */; };
@@ -472,8 +472,8 @@
 			files = (
 				49D5BE7525D8522B003EBA9F /* BuilderButton.swift in Sources */,
 				49A01F8525D6C9A900B1E75A /* PhotoWidgetData.swift in Sources */,
-				49A01F7925D6C92B00B1E75A /* PhotoWidgetView.swift in Sources */,
 				49E0998B25D96BAC00402206 /* SettingsNavigationView.swift in Sources */,
+				49653C9125DBF1C20014081C /* PhotoWidgetView.swift in Sources */,
 				49E0998225D9694000402206 /* PhotoSettingsView.swift in Sources */,
 				496FAA4C25DADF6800D0AB34 /* UnsplashImagePicker.swift in Sources */,
 				49D5BE6D25D840B7003EBA9F /* DotsButton.swift in Sources */,
@@ -500,9 +500,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A01F8125D6C93600B1E75A /* PhotoWidget.swift in Sources */,
-				49A01F7C25D6C93000B1E75A /* PhotoWidgetView.swift in Sources */,
 				49A01F8825D6CA0F00B1E75A /* PhotoWidgetData.swift in Sources */,
 				49D5BE2825D7F45A003EBA9F /* WidgetLayout.swift in Sources */,
+				49653C9225DBF1C20014081C /* PhotoWidgetView.swift in Sources */,
 				496FAA7625DBCD2300D0AB34 /* PhotoWidgetStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

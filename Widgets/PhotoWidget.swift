@@ -14,7 +14,7 @@ struct PhotoWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PhotoProvider()) { entry in
-            PhotoWidgetView(config: entry.widgetData )
+            PhotoWidgetView(config: entry.widgetData, photoShape: ContainerRelativeShape())
         }
         .configurationDisplayName("Photo Widget")
         .description("Customize photos and layout")
